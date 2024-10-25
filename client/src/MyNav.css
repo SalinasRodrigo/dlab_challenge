@@ -3,7 +3,7 @@
   color: #ffffff;
   margin: 0;
   height: 100dvh;
-  width: 20dvw;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,7 +22,7 @@ header{
   align-items: center;
   justify-content: center;
   padding: 0;
-  width: 20dvw;
+  width: 250px;
   height: 15dvh;
 }
 
@@ -65,7 +65,7 @@ li{
 
 li a {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
   justify-content: start;
   font-size: 20px;
@@ -87,7 +87,7 @@ footer{
   align-items: center;
   justify-content: space-around;
   padding-bottom: 25px;
-  width: 20dvw;
+  width: 250px;
 }
 
 .profile{

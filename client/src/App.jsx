@@ -27,7 +27,7 @@ function App() {
   return (
     <main>
       <MyNav/>
-      <div>
+      <div className='body'>
         <MyHeader/>
         <RouterProvider router={router}/>
       </div>
