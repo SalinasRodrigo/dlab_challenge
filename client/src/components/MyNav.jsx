@@ -1,8 +1,8 @@
-import logo from './assets/dTalentLogo.png'
-import GearIcon from './icons/Gear'
-import InboxIcon from './icons/Inbox'
-import PaperIcon from './icons/Paper'
-import { PeopleIcon } from './icons/People'
+import logo from '../assets/dTalentLogo.png'
+import GearIcon from '../icons/Gear'
+import InboxIcon from '../icons/Inbox'
+import PaperIcon from '../icons/Paper'
+import { PeopleIcon } from '../icons/People'
 import './MyNav.css'
 
 export const MyNav = () => {

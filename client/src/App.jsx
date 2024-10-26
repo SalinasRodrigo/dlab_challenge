@@ -1,8 +1,9 @@
 import './App.css'
 
-import { MyHeader } from './MyHeader'
-import { MyNav } from './MyNav'
-import { UsersPage } from './UsersPage'
+
+import { MyNav } from './components/MyNav'
+import { ReceiptsPage } from './pages/ReceiptsPage';
+import { UsersPage } from './pages/UsersPage'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,12 +15,12 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path:"/user",
+      path:"/users",
       element: <UsersPage/>
     },
     {
-      path:"/",
-      element: <h1>Alo</h1>
+      path:"/receipts",
+      element: <ReceiptsPage/>
     }
   ]);
   
@@ -28,7 +29,6 @@ function App() {
     <main>
       <MyNav/>
       <div className='body'>
-        <MyHeader/>
         <RouterProvider router={router}/>
       </div>
     </main>
