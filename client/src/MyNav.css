@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .top-nav{
@@ -100,7 +101,9 @@ footer{
   border-radius: 5rem;
   padding: 10px;
   font-weight: bold;
-
+  color: #ffffff;
+  width: fit-content;
+  height: fit-content;
 }
 
 .footer-usuario{

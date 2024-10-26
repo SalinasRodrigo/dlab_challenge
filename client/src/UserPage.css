@@ -1,0 +1,156 @@
+.main-section{
+  background-color: #f0f0f0;
+  color: #0c0c0c;
+  height: calc(100dvh - 120px);
+}
+
+.filter{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.selector{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.filtro {
+  display: flex;
+  align-items: center;
+}
+
+.filtro select {
+  padding: 10px;
+  font-family: inherit;
+  font-size:medium;
+  font-weight:600;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.filtro select:hover {
+  background-color: #e6e6e6; 
+}
+
+.filtro select:focus {
+  outline: none;
+  border-color: #5687f6; 
+  box-shadow: 0 0 5px rgba(86, 135, 246, 0.5); 
+}
+
+.add-btn{
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  font-size: inherit;
+  color: #5687f6;
+  cursor: pointer;
+}
+
+.search-inp{
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+
+  input{
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex: 1; 
+  }
+  
+}
+
+
+.content-table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  box-shadow: 0 3px 1.5px rgba(0, 0, 0, 0.25);
+  border-radius: 0.2rem;
+  overflow: hidden;
+  margin: 0 40px;
+  width: calc(100% - 80px);
+}
+
+.content-table thead tr{
+  background-color: #5687f6;
+  color: #ffffff;
+  text-align: left;
+}
+
+.content-table tbody tr{
+  background-color: #dddddddd;
+}
+
+.content-table th,
+.content-table td{
+  padding: 12px 15px;
+}
+
+.estado{
+  background-color: #457b3b;
+  padding: 5px 10px;
+  border-radius: 1rem;
+  color: #f0f0f0;
+}
+
+.edit{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  svg {
+    color: #5687f6;
+    scale: 1.5;
+  }
+}
+
+.content-table tbody tr:nth-of-type(even){
+  background-color: #ccccccd8;
+}
+
+
+.pages{
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+
+  span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.page{
+  height: 40px;
+  width: 40px;
+  border-radius: 5rem;
+  background-color: #dddddddd;
+}
+
+.right{
+  transform: rotate(180deg);
+}
+
+.right, .left{
+  color: #63626298;
+  scale: 1.5;
+  cursor: pointer;
+}
+
+
+
