@@ -2,6 +2,7 @@ import './App.css'
 
 
 import { MyNav } from './components/MyNav'
+import { UserProvider } from './context/UserProvider';
 import { ReceiptsPage } from './pages/ReceiptsPage';
 import { UsersPage } from './pages/UsersPage'
 import {
@@ -16,7 +17,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path:"/users",
-      element: <UsersPage/>
+      element: <UserProvider><UsersPage/></UserProvider>
     },
     {
       path:"/receipts",

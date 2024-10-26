@@ -100,10 +100,17 @@
 }
 
 .estado{
-  background-color: #57884e;
   padding: 5px 10px;
   border-radius: 1rem;
   color: #f0f0f0;
+}
+
+.activo{
+  background-color: #57884e;
+}
+
+.inactivo{
+  background-color: #a3a3a3;
 }
 
 .edit{

@@ -3,8 +3,13 @@ import Pen from '../icons/Pen'
 import './UserPage.css'
 import Arrow from '../icons/Arrow'
 import { MyHeader } from '../components/MyHeader'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserProvider'
 
 export const UsersPage = () => {
+
+  const {users, getUsers} = useContext(UserContext) 
+
   return(
     <>
       <MyHeader/>
@@ -39,24 +44,17 @@ export const UsersPage = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><div className='profile-picture' >DD</div></td>
-              <td>#1</td>
-              <td>dLabDemo</td>
-              <td>demo@dlab.sofware</td>
-              <td></td>
-              <td><span className='estado'>Activo</span></td>
-              <td><button className='edit'><Pen/></button></td>
-            </tr>
-            <tr>
-              <td><div className='profile-picture' >DD</div></td>
-              <td>#1</td>
-              <td>dLabDemo</td>
-              <td>demo@dlab.sofware</td>
-              <td></td>
-              <td><span className='estado'>Activo</span></td>
-              <td><button className='edit'><Pen/></button></td>
-            </tr>
+            {users.length > 0 ? users.map((user)=>(
+              <tr key={user.id}>
+                <td><div className='profile-picture' >{user.initials}</div></td>
+                <td>#{user.employeeNumber}</td>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+                <td>{user.phoneNumber}</td>
+                <td>{user.isActive ? <span className='estado activo'>Activo</span> : <span className='estado-inactivo'>Activo</span>}</td>
+                <td><button className='edit'><Pen/></button></td>
+              </tr>
+            )) : <></>}
           </tbody>
         </table>
         <div className='pages'>
