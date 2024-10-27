@@ -21,15 +21,13 @@ export function UserProvider ({children}){
       .then((res) => res.json())
       .then((response) => {
         const users = response.results;
-        console.log(users)
         setUsers(users);
       });
   }
 
   useEffect(() => {
     getUsers()
-    console.log(users)
-  }, []);
+  }, [filter]);
 
   return(
     <UserContext.Provider value={{

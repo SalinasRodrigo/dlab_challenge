@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/dTalentLogo.png'
 import GearIcon from '../icons/Gear'
 import InboxIcon from '../icons/Inbox'
@@ -14,10 +15,10 @@ export const MyNav = () => {
         </header>
         <section>
           <ul>
-            <li><a href="#"><PeopleIcon/><span>Empleados</span></a></li>
-            <li><a href="#"><PaperIcon/><span>Recibos</span></a></li>
-            <li><a href="#"><InboxIcon/><span>Comunicados</span></a></li>
-            <li><a href="#"><GearIcon/><span>Configuracion</span></a></li>
+            <li><Link to="/users"><PeopleIcon/><span>Empleados</span></Link></li>
+            <li><Link to="/receipts"><PaperIcon/><span>Recibos</span></Link></li>
+            <li><Link to="#"><InboxIcon/><span>Comunicados</span></Link></li>
+            <li><Link to="#"><GearIcon/><span>Configuracion</span></Link></li>
           </ul>
         </section>
       </div>

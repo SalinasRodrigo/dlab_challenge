@@ -1,0 +1,33 @@
+.tipo{
+  color: #5687f6;
+}
+
+.estado-receipts{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  svg{
+    scale: 1.5;
+    color: #f0f0f0;
+    background-color: #57884e;
+    border-radius: 5rem;
+  }
+}
+
+.uncheck{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  svg{
+    scale: 1.5;
+    color: #f0f0f0;
+    background-color: #a3a3a3;
+    border-radius: 5rem;
+  }
+}

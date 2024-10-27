@@ -8,7 +8,7 @@ import { UserContext } from '../context/UserProvider'
 
 export const UsersPage = () => {
 
-  const {users, getUsers} = useContext(UserContext) 
+  const {users} = useContext(UserContext) 
 
   return(
     <>
@@ -57,10 +57,14 @@ export const UsersPage = () => {
             )) : <></>}
           </tbody>
         </table>
-        <div className='pages'>
-          <span className='right'><Arrow/></span>
-          <span className='page'>1</span>
-          <span className='left'><Arrow/></span>
+        <div className="pages">
+          <button className="right">
+            <Arrow />
+          </button>
+          <span className="page">1</span>
+          <button className="left">
+            <Arrow />
+          </button>
         </div>
       </section>
     </>

@@ -1,5 +1,5 @@
 .main-section{
-  z-index: -1;
+  z-index: 1;
   background-color: #f0f0f0;
   color: #0c0c0c;
   height: calc(100dvh - 120px);
@@ -96,6 +96,7 @@
 
 .content-table th,
 .content-table td{
+  text-align: center;
   padding: 12px 15px;
 }
 
@@ -135,11 +136,17 @@
   padding: 40px;
   align-items: center;
   justify-content: center;
-
-  span{
+  span, button{
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  button{
+    cursor: pointer; 
+    background: none;
+    border: none;
+    color: #63626298;
+    scale: 1.5;
   }
 }
 
@@ -154,11 +161,6 @@
   transform: rotate(180deg);
 }
 
-.right, .left{
-  color: #63626298;
-  scale: 1.5;
-  cursor: pointer;
-}
 
 
 
