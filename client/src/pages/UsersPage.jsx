@@ -7,8 +7,9 @@ import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserProvider'
 import { FiltroActivo, FiltroCargo, FiltroNacionalidad, FiltroRol, FiltroSector, FiltroTipoRemu, FiltroTurno } from '../components/Filters'
 
+
 export const UsersPage = () => {
-  const {users, visibleFliters, setVisibleFliters, } = useContext(UserContext) 
+  const {users, visibleFliters, setVisibleFliters, setUsers} = useContext(UserContext) 
   const [selectedOption, setSelectedOption] = useState('-1');
   const misFiltros = [
     <FiltroTipoRemu key={0}/>,
@@ -35,6 +36,39 @@ export const UsersPage = () => {
     setSelectedOption(e.target.value)
   }
 
+  const handleSort = (e) => {
+    if(e.target.value == 0){
+      const sortedUsers = [...users].sort((a,b)=> a.employeeNumber > b.employeeNumber)
+      setUsers(sortedUsers)
+      return
+    }
+    if(e.target.value == 1){
+      const sortedUsers = [...users].sort((a, b) => new Date(b.dateJoined) - new Date(a.dateJoined));
+      setUsers(sortedUsers)
+      return
+    }
+    if(e.target.value == 2){
+      const sortedUsers = [...users].sort((a, b) => new Date(a.dateJoined) - new Date(b.dateJoined));
+      setUsers(sortedUsers)
+      return
+    }
+    if(e.target.value == 3){
+      const sortedUsers = [...users].sort((a,b)=> a.firstName.localeCompare(b.firstName))
+      setUsers(sortedUsers)
+      return
+    }
+    if(e.target.value == 4){
+      const sortedUsers = [...users].sort((a,b)=> a.lastName.localeCompare(b.lastName))
+      setUsers(sortedUsers)
+      return
+    }
+    if(e.target.value == 5){
+      const sortedUsers = [...users].sort((a,b)=> a.email.localeCompare(b.email))
+      setUsers(sortedUsers)
+      return
+    }
+  }
+
   return(
     <>
       <MyHeader count = {users.length}/>
@@ -43,10 +77,13 @@ export const UsersPage = () => {
           <div className="selector">
             <div className="orden">
               <label htmlFor="orden">Ordenar por</label>
-              <select id="orden">
-                <option value="Numer">Numero</option>
-                <option value="Numer">Numero</option>
-                <option value="Numer">Numero</option>
+              <select id="orden" onChange={handleSort}>
+                <option value="0">Número</option>
+                <option value="1">Más recientes</option>
+                <option value="2">Más antiguos</option>
+                <option value="3">Nombre</option>
+                <option value="4">Apellido</option>
+                <option value="5">Correo electrónico</option>
               </select>
             </div>
             <div className="add-filtros">

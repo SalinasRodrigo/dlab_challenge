@@ -10,7 +10,7 @@ import UnCheck from "../icons/UnCheck";
 import { FiltroAño, FiltroEnviado, FiltroLeido, FiltroMes, FiltroTipo } from "../components/Filters";
 
 export const ReceiptsPage = () => {
-  const { receipts, visibleFliters, setVisibleFliters } = useContext(ReceiptsContext);
+  const { receipts, visibleFliters, setVisibleFliters, setReceipts } = useContext(ReceiptsContext);
   const [selectedOption, setSelectedOption] = useState('-1');
   const misFiltros = [
     <FiltroTipo key={0}/>,
@@ -54,6 +54,24 @@ export const ReceiptsPage = () => {
     setSelectedOption(e.target.value)
   }
 
+  const handleSort = (e) => {
+    if(e.target.value == 0){
+      const sortedReceipts = [...receipts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      setReceipts(sortedReceipts)
+      return
+    }
+    if(e.target.value == 1){
+      const sortedReceipts = [...receipts].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+      setReceipts(sortedReceipts)
+      return
+    }
+    if(e.target.value == 2){
+      const sortedReceipts = [...receipts].sort((a,b)=> a.type.localeCompare(b.type))
+      setReceipts(sortedReceipts)
+      return
+    }
+  }
+
   return (
     <>
       <MyHeader count={receipts.length}/>
@@ -62,10 +80,10 @@ export const ReceiptsPage = () => {
           <div className="selector">
             <div className="orden">
               <label htmlFor="orden">Ordenar por</label>
-              <select id="orden">
-                <option value="Numer">Numero</option>
-                <option value="Numer">Numero</option>
-                <option value="Numer">Numero</option>
+              <select id="orden" onChange={handleSort}>
+                <option value="0">Más Recientes</option>
+                <option value="1">Más antiguos</option>
+                <option value="2">Tipo</option>
               </select>
             </div>
             <div className="add-filtros">
