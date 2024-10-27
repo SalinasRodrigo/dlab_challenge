@@ -1,12 +1,13 @@
 import './MyHeader.css'
 
-export const MyHeader = () => {
+// eslint-disable-next-line react/prop-types
+export const MyHeader = ({count}) => {
   return(
     <header className='myheader'>
       <div className='title'>
         <h2>Lista de empleados</h2>
         <div>
-          <span>1</span>
+          <span>{count}</span>
         </div>
       </div>
       <div className='btns'>

@@ -19,12 +19,12 @@
   gap: 20px;
 }
 
-.filtro {
+.orden {
   display: flex;
   align-items: center;
 }
 
-.filtro select {
+.orden select {
   padding: 10px;
   font-family: inherit;
   font-size:medium;
@@ -35,14 +35,51 @@
   border-radius: 0.5rem;
 }
 
-.filtro select:hover {
+.orden select:hover {
   background-color: #e6e6e6; 
 }
 
-.filtro select:focus {
+.orden select:focus {
   outline: none;
   border-color: #5687f6; 
   box-shadow: 0 0 5px rgba(86, 135, 246, 0.5); 
+}
+
+.add-filtros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.label {
+  background-color: #f0f0f0;
+  border: none;
+  font-size: inherit;
+  color: #5687f6;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.selectFiltro {
+  width: 120px;
+  opacity: 0; /* Oculta el texto del select */
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  font-family: inherit;
+  font-size:medium;
+  font-weight:600;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.selectFiltro option{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .add-btn{
@@ -72,6 +109,14 @@
   
 }
 
+.filtros{
+  padding-left: 60px;
+  padding-bottom: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: start;
+  align-items: center;
+}
 
 .content-table{
   border-collapse: collapse;
@@ -80,8 +125,8 @@
   box-shadow: 0 3px 1.5px rgba(0, 0, 0, 0.25);
   border-radius: 0.2rem;
   overflow: hidden;
-  margin: 0 40px;
-  width: calc(100% - 80px);
+  margin: 0 60px;
+  width: calc(100% - 120px);
 }
 
 .content-table thead tr{
@@ -133,7 +178,7 @@
 .pages{
   display: flex;
   gap: 20px;
-  padding: 40px;
+  padding: 60px;
   align-items: center;
   justify-content: center;
   span, button{

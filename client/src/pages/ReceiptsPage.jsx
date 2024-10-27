@@ -4,12 +4,21 @@ import "./ReceiptsPage.css"
 import { MyHeader } from "../components/MyHeader";
 import Arrow from "../icons/Arrow";
 import { ReceiptsContext } from "../context/ReceiptsProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Check from "../icons/Check";
 import UnCheck from "../icons/UnCheck";
+import { FiltroAño, FiltroEnviado, FiltroLeido, FiltroMes, FiltroTipo } from "../components/Filters";
 
 export const ReceiptsPage = () => {
-  const { receipts } = useContext(ReceiptsContext);
+  const { receipts, visibleFliters, setVisibleFliters } = useContext(ReceiptsContext);
+  const [selectedOption, setSelectedOption] = useState('-1');
+  const misFiltros = [
+    <FiltroTipo key={0}/>,
+    <FiltroAño key={1}/>,
+    <FiltroMes key={2}/>,
+    <FiltroEnviado key={3}/>,
+    <FiltroLeido key={4}/>
+  ]
 
   const getTime = (date) => {
     const formatDate = new Date(date)
@@ -30,21 +39,46 @@ export const ReceiptsPage = () => {
     return `Hace ${años} año/s`
   }
 
+  const handleSelect = (e) => {
+    if(e.target.value == -1){
+      setSelectedOption(e.target.value)
+      setVisibleFliters([])
+      return
+    }
+    if(visibleFliters.includes(e.target.value)) return
+    const newVisibleFliters = [
+      ...visibleFliters,
+      e.target.value,
+    ]
+    setVisibleFliters(newVisibleFliters)
+    setSelectedOption(e.target.value)
+  }
+
   return (
     <>
-      <MyHeader />
+      <MyHeader count={receipts.length}/>
       <section className="main-section">
         <form className="filter">
           <div className="selector">
-            <div className="filtro">
-              <label htmlFor="filtro">Ordenar por</label>
-              <select id="filtro">
+            <div className="orden">
+              <label htmlFor="orden">Ordenar por</label>
+              <select id="orden">
                 <option value="Numer">Numero</option>
                 <option value="Numer">Numero</option>
                 <option value="Numer">Numero</option>
               </select>
             </div>
-            <button className="add-btn">Agregar filtro +</button>
+            <div className="add-filtros">
+              <div className="label">Agregar filtro +</div>
+              <select className="selectFiltro" value={selectedOption} onChange={handleSelect}>
+                <option value="0">Tipo de remuneración +</option>
+                <option value="1">Año +</option>
+                <option value="2">Mes +</option>
+                <option value="3">Enviado +</option>
+                <option value="4">Leido +</option>
+                <option value="-1">Limpiar filtros</option>
+              </select>
+            </div>
           </div>
           <div className="search-inp">
             <input
@@ -56,6 +90,15 @@ export const ReceiptsPage = () => {
             <Search />
           </div>
         </form>
+
+        <div className="filtros">  
+          {visibleFliters.length>0 ? visibleFliters.map((filtro, index)=>(
+            <div key={index}>
+              {misFiltros[filtro]}
+            </div>
+          )) : <></>}
+        </div>
+
         <table className="content-table">
           <thead>
             <tr>
