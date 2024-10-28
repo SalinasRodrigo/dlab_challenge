@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { LoginContext } from "./LoginProvider";
 const BASE_URL = "https://api.schneck.dlab.software/api/";
-const TOKEN = "81bca52e6f48e169b4fd441e31859fa191853dd3";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ReceiptsContext = createContext();
@@ -10,6 +10,7 @@ export function ReceiptsProvider({ children }) {
   const [receipts, setReceipts] = useState([]);
   const [filter, setFilter] = useState([]);
   const [visibleFliters, setVisibleFliters] = useState([]);
+  const {token} = useContext(LoginContext)
 
   const getReceipts = () => {
     let textFilter = "";
@@ -17,9 +18,9 @@ export function ReceiptsProvider({ children }) {
       ? (textFilter = filter.join("&"))
       : (textFilter = filter.join(""));
     fetch(`${BASE_URL}receipts/?${textFilter}`, {
-      method: "GET", // Cambia el método si es POST, PUT, etc.
+      method: "GET",
       headers: {
-        Authorization: `Token ${TOKEN}`,
+        Authorization: `Token ${token}`,
         "Content-Type": "application/json",
       },
     })

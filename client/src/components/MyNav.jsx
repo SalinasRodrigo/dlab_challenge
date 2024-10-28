@@ -5,8 +5,11 @@ import InboxIcon from '../icons/Inbox'
 import PaperIcon from '../icons/Paper'
 import { PeopleIcon } from '../icons/People'
 import './MyNav.css'
+import { LoginContext } from '../context/LoginProvider'
+import { useContext } from 'react'
 
 export const MyNav = () => {
+  const {login} = useContext(LoginContext)
   return(
     <aside className='nav-bar'>
       <div className='top-nav'>
@@ -24,10 +27,10 @@ export const MyNav = () => {
       </div>
       <footer>
         <div className='profile'>
-          <div className='profile-picture' >DD</div>
+          <div className='profile-picture' >{login?.initials}</div>
           <div className='footer-usuario'>
             <small>Bienvenido</small>
-            <b>nombre</b>
+            <b>{login?.username}</b>
           </div>
         </div>
         <span className='trespuntos'></span>

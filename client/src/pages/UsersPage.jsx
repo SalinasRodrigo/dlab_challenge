@@ -2,7 +2,7 @@ import Search from '../icons/Search'
 import Pen from '../icons/Pen'
 import './UserPage.css'
 import Arrow from '../icons/Arrow'
-import { MyHeader } from '../components/MyHeader'
+import { UserHeader } from '../components/UserHeader'
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserProvider'
 import { FiltroActivo, FiltroCargo, FiltroNacionalidad, FiltroRol, FiltroSector, FiltroTipoRemu, FiltroTurno } from '../components/Filters'
@@ -71,7 +71,7 @@ export const UsersPage = () => {
 
   return(
     <>
-      <MyHeader count = {users.length}/>
+      <UserHeader count = {users.length}/>
       <section className="main-section">
         <form className="filter">
           <div className="selector">

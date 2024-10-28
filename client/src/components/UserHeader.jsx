@@ -1,7 +1,7 @@
 import './MyHeader.css'
 
 // eslint-disable-next-line react/prop-types
-export const MyHeader = ({count}) => {
+export const UserHeader = ({count}) => {
   return(
     <header className='myheader'>
       <div className='title'>

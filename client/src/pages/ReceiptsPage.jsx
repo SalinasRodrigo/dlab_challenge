@@ -1,7 +1,7 @@
 import Search from "../icons/Search";
 import "./UserPage.css";
 import "./ReceiptsPage.css"
-import { MyHeader } from "../components/MyHeader";
+import { ReceiptsHeader } from "../components/ReceiptsHeader";
 import Arrow from "../icons/Arrow";
 import { ReceiptsContext } from "../context/ReceiptsProvider";
 import { useContext, useState } from "react";
@@ -74,7 +74,7 @@ export const ReceiptsPage = () => {
 
   return (
     <>
-      <MyHeader count={receipts.length}/>
+      <ReceiptsHeader count={receipts.length}/>
       <section className="main-section">
         <form className="filter">
           <div className="selector">
@@ -103,7 +103,7 @@ export const ReceiptsPage = () => {
               type="text"
               name="busqueda"
               id="busqueda"
-              placeholder="Buscar empleado"
+              placeholder="Buscar recibo"
             />
             <Search />
           </div>

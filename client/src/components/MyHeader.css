@@ -55,11 +55,18 @@
 }
 
 .nuevo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   background-color: #5687f6;
   color: #ffffff;
   border: none;
   border-radius: 0.5rem;
   padding: 10px 20px;
+  svg{
+    scale: 1.5;
+  }
 }
 
 .nuevo:hover{
